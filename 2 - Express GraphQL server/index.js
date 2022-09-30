@@ -32,6 +32,26 @@ const db = {
             email: 'james@gmail.com',
             name: 'James'
         }
+    ],
+    messages: [
+        { 
+            id: '1',
+            userId: '1',
+            body: 'Hello',
+            createdAt: Date.now()
+        },
+        { 
+            id: '2',
+            userId: '2',
+            body: 'Hi',
+            createdAt: Date.now()
+        },
+        { 
+            id: '3',
+            userId: '1',
+            body: 'Hey there',
+            createdAt: Date.now()
+        }
     ]
 }
 
@@ -50,6 +70,7 @@ const schema = buildSchema(`
     type Query {
         users: [User!]!
         singleUser(id: ID!): User
+        messages: [Message!]!
     }
 
     type Mutation {
@@ -61,6 +82,13 @@ const schema = buildSchema(`
         email: String!
         name: String
         avatarUrl: String
+    }
+
+    type Message {
+        id: ID!
+        userId: String
+        body: String!
+        createdAt: String
     }
 `)
 
@@ -85,7 +113,9 @@ const rootValue = {
 
         // return user to see new user that has been pushed into array
         return user
-    }
+    },
+    // in order to implement the messages query, we must add it here
+    messages: () => db.messages
 }
 
 
