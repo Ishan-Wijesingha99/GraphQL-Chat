@@ -25,7 +25,10 @@ export const DisplayDataUseQuery = () => {
     // this is how you use useQuery, you put the query gql statement as the argument and you destructure the data out of it
     // in this case, data is an object, and one of the properties of that object is an array of the information we actually want (data.users)
     // we also destructure loading and error
-    const {data, loading, error} = useQuery(QUERY_ALL_USERS)
+    // refetch is a function, when we call refetch() the query is run again
+    // refetch() should be called when we update the users, so for instance if we update a single user or add a user, you'd want to use refetch() so that the displayed data changes as soon as a change is made to the users in the backend
+    // we aren't going to use refetch here, but if we were to use it in CreateUserUseMutation.js, we'd have to initialise this query in App.js and pass it down to the CreateUserUseMutation component as a prop because it's a child element of the App component
+    const {data, loading, error, refetch} = useQuery(QUERY_ALL_USERS)
 
     // this is really cool, because querying data from a database in the backend is an asynchronous task, the data object won't immediately be available, while that data object is being retrieved, the loading variable is TRUE
     // so while the data is being retrieved you can return JSX for a loading screen
