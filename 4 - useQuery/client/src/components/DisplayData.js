@@ -54,12 +54,16 @@ export const DisplayData = () => {
             {data && data.users.map(object => {
                 return (
                     <div key={object.id}>
-                        <h2>{object.id}</h2>
-                        <h3>{object.name}</h3>
-                        <h3>{object.username}</h3>
+                        <h2>ID - {object.id}</h2>
+                        <h3>NAME - {object.name}</h3>
+                        <h3>USERNAME - {object.username}</h3>
                     </div>
                 )
             })}
         </div>
     )
 }
+
+// https://www.youtube.com/watch?v=Ucsede0gTDA
+// in this video he also goes through useLazyQuery() for onClick fetching of data from the backend
+// he also goes through querying something that takes in an argument
