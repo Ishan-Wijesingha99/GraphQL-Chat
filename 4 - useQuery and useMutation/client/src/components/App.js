@@ -9,7 +9,12 @@ import React from "react";
 
 // these are things you need to import to make apollo client work
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery } from '@apollo/client'
+
+// import this for the component that shows the functionality of useQuery
 import { DisplayDataUseQuery } from "./DisplayDataUseQuery";
+
+// import this for the component that shows the functionality of useMutation
+import { CreateUserUseMutation } from './CreateUserUseMutation'
 
 
 
@@ -29,8 +34,12 @@ export const App = () => {
             <div>
                 <h1>List of Users</h1>
                 
-                {/* this is the component which will render the data we query from the backend */}
+                {/* this is the component responsible for everything related to useQuery */}
                 <DisplayDataUseQuery />
+
+                {/* this is the component responsible for everything related to useMutation */}
+                <CreateUserUseMutation />
+                
             </div>
         </ApolloProvider>
     )
