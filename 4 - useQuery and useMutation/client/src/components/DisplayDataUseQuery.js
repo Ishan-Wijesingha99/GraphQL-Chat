@@ -20,7 +20,7 @@ const QUERY_ALL_USERS = gql`
     }
 `
 
-export const DisplayData = () => {
+export const DisplayDataUseQuery = () => {
     
     // this is how you use useQuery, you put the query gql statement as the argument and you destructure the data out of it
     // in this case, data is an object, and one of the properties of that object is an array of the information we actually want (data.users)

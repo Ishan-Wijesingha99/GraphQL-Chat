@@ -9,7 +9,7 @@ import React from "react";
 
 // these are things you need to import to make apollo client work
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery } from '@apollo/client'
-import { DisplayData } from "./DisplayData";
+import { DisplayDataUseQuery } from "./DisplayDataUseQuery";
 
 
 
@@ -30,7 +30,7 @@ export const App = () => {
                 <h1>List of Users</h1>
                 
                 {/* this is the component which will render the data we query from the backend */}
-                <DisplayData />
+                <DisplayDataUseQuery />
             </div>
         </ApolloProvider>
     )
