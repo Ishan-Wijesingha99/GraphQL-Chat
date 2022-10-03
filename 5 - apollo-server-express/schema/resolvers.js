@@ -10,5 +10,13 @@ export const resolvers = {
             // because we have a users array to mock a database for learning purposes, all we need to do is return the users array
             return users
         }
+    },
+    Mutation: {
+        createUser: (root, args) => {
+            // because we have a users array to mock a database for learning purposes, all we need to do is push newUser to that array
+            const newUser = args
+            users.push(newUser)
+            return newUser
+        }
     }
 }

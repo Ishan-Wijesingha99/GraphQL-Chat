@@ -16,5 +16,9 @@ export const typeDefs = gql`
     type Query {
         getAllUsers: [User!]!
     }
+
+    type Mutation {
+        createUser(name: String!, age: Int!, married: Boolean!): User!
+    }
 `
 
